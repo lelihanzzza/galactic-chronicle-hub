@@ -3,8 +3,13 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
+import { Home } from "./pages/Home";
+import { PostBlog } from "./pages/PostBlog";
+import { Calendar } from "./pages/Calendar";
+import { Album } from "./pages/Album";
+import { About } from "./pages/About";
 import NotFound from "./pages/NotFound";
+import { HudLayout } from "./components/HudLayout";
 
 const queryClient = new QueryClient();
 
@@ -12,13 +17,18 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
-      <Sonner />
+      <Sonner position="top-right" />
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <HudLayout>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/post" element={<PostBlog />} />
+            <Route path="/calendar" element={<Calendar />} />
+            <Route path="/album" element={<Album />} />
+            <Route path="/about" element={<About />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </HudLayout>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
