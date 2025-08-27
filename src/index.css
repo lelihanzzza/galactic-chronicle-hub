@@ -30,6 +30,11 @@
     --secondary-foreground: 220 35% 6%;
     --secondary-glow: 30 100% 70%;
 
+    /* Retro Star Wars colors */
+    --retro-green: 120 100% 50%;
+    --retro-orange: 25 100% 60%;
+    --retro-amber: 45 100% 50%;
+
     /* Muted elements */
     --muted: 220 25% 15%;
     --muted-foreground: 193 50% 65%;
@@ -265,6 +270,22 @@
     100% { transform: translateX(100vw); }
   }
 
+  @keyframes radar-sweep {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  @keyframes radar-line {
+    0% { transform: translateX(-50%) rotate(0deg); }
+    100% { transform: translateX(-50%) rotate(360deg); }
+  }
+
+  @keyframes data-stream {
+    0% { opacity: 0; transform: translateY(20px); }
+    50% { opacity: 1; }
+    100% { opacity: 0; transform: translateY(-20px); }
+  }
+
   .animate-glow {
     animation: glow 2s ease-in-out infinite;
   }
@@ -275,6 +296,18 @@
 
   .animate-scan {
     animation: scan 3s linear infinite;
+  }
+
+  .animate-radar-sweep {
+    animation: radar-sweep 4s linear infinite;
+  }
+
+  .animate-radar-line {
+    animation: radar-line 2s linear infinite;
+  }
+
+  .animate-data-stream {
+    animation: data-stream 2s linear infinite;
   }
 }
 

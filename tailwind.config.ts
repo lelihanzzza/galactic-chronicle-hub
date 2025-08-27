@@ -38,6 +38,9 @@ export default {
 					foreground: 'hsl(var(--secondary-foreground))',
 					glow: 'hsl(var(--secondary-glow))',
 				},
+				'retro-green': 'hsl(var(--retro-green))',
+				'retro-orange': 'hsl(var(--retro-orange))',
+				'retro-amber': 'hsl(var(--retro-amber))',
 				destructive: {
 					DEFAULT: 'hsl(var(--destructive))',
 					foreground: 'hsl(var(--destructive-foreground))'
