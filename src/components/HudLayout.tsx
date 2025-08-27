@@ -9,23 +9,32 @@ export const HudLayout = ({ children }: HudLayoutProps) => {
     <div className="min-h-screen relative overflow-hidden">
       {/* Retro HUD Background Grid */}
       <div 
-        className="fixed inset-0 opacity-20"
+        className="fixed inset-0 opacity-40 z-0"
         style={{
           backgroundImage: `
-            linear-gradient(hsl(var(--retro-green) / 0.3) 1px, transparent 1px),
-            linear-gradient(90deg, hsl(var(--retro-green) / 0.3) 1px, transparent 1px),
-            linear-gradient(hsl(var(--retro-green) / 0.1) 1px, transparent 1px),
-            linear-gradient(90deg, hsl(var(--retro-green) / 0.1) 1px, transparent 1px)
+            linear-gradient(hsl(var(--retro-green) / 0.6) 1px, transparent 1px),
+            linear-gradient(90deg, hsl(var(--retro-green) / 0.6) 1px, transparent 1px),
+            linear-gradient(hsl(var(--retro-green) / 0.2) 1px, transparent 1px),
+            linear-gradient(90deg, hsl(var(--retro-green) / 0.2) 1px, transparent 1px)
           `,
-          backgroundSize: '20px 20px, 20px 20px, 100px 100px, 100px 100px'
+          backgroundSize: '30px 30px, 30px 30px, 150px 150px, 150px 150px'
         }}
       />
 
-      {/* Radar Sweep Effect */}
-      <div className="fixed top-4 right-4 w-32 h-32 rounded-full border border-retro-green/30 animate-radar-sweep">
-        <div className="absolute inset-2 rounded-full border border-retro-green/20" />
-        <div className="absolute inset-4 rounded-full border border-retro-green/10" />
-        <div className="absolute top-1/2 left-1/2 w-1 h-16 bg-retro-green/50 origin-bottom animate-radar-line" />
+      {/* Large Radar Sweep Effect */}
+      <div className="fixed top-8 right-8 w-64 h-64 rounded-full border-2 border-retro-green/50 animate-radar-sweep z-0">
+        <div className="absolute inset-4 rounded-full border border-retro-green/30" />
+        <div className="absolute inset-8 rounded-full border border-retro-green/20" />
+        <div className="absolute inset-12 rounded-full border border-retro-green/10" />
+        <div className="absolute top-1/2 left-1/2 w-2 h-32 bg-retro-green/60 origin-bottom animate-radar-line" />
+        <div className="absolute top-1/2 left-1/2 w-1 h-24 bg-retro-orange/40 origin-bottom animate-radar-line" style={{ animationDelay: '1s' }} />
+      </div>
+
+      {/* Secondary Radar - Bottom Left */}
+      <div className="fixed bottom-20 left-8 w-48 h-48 rounded-full border border-retro-orange/30 animate-radar-sweep z-0" style={{ animationDirection: 'reverse', animationDuration: '6s' }}>
+        <div className="absolute inset-3 rounded-full border border-retro-orange/20" />
+        <div className="absolute inset-6 rounded-full border border-retro-orange/10" />
+        <div className="absolute top-1/2 left-1/2 w-1 h-24 bg-retro-orange/50 origin-bottom animate-radar-line" style={{ animationDirection: 'reverse' }} />
       </div>
 
       {/* System Status Panel */}
