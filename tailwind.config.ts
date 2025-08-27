@@ -78,6 +78,7 @@ export default {
 				'float': 'float 3s ease-in-out infinite',
 				'scan': 'scan 3s linear infinite',
 				'pulse': 'pulse 1s infinite',
+				'matrix-fall': 'matrix-fall linear infinite',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

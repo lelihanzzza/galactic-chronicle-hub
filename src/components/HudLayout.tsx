@@ -21,20 +21,26 @@ export const HudLayout = ({ children }: HudLayoutProps) => {
         }}
       />
 
-      {/* Large Radar Sweep Effect */}
-      <div className="fixed top-8 right-8 w-64 h-64 rounded-full border-2 border-retro-green/50 animate-radar-sweep z-0">
-        <div className="absolute inset-4 rounded-full border border-retro-green/30" />
-        <div className="absolute inset-8 rounded-full border border-retro-green/20" />
-        <div className="absolute inset-12 rounded-full border border-retro-green/10" />
-        <div className="absolute top-1/2 left-1/2 w-2 h-32 bg-retro-green/60 origin-bottom animate-radar-line" />
-        <div className="absolute top-1/2 left-1/2 w-1 h-24 bg-retro-orange/40 origin-bottom animate-radar-line" style={{ animationDelay: '1s' }} />
-      </div>
-
-      {/* Secondary Radar - Bottom Left */}
-      <div className="fixed bottom-20 left-8 w-48 h-48 rounded-full border border-retro-orange/30 animate-radar-sweep z-0" style={{ animationDirection: 'reverse', animationDuration: '6s' }}>
-        <div className="absolute inset-3 rounded-full border border-retro-orange/20" />
-        <div className="absolute inset-6 rounded-full border border-retro-orange/10" />
-        <div className="absolute top-1/2 left-1/2 w-1 h-24 bg-retro-orange/50 origin-bottom animate-radar-line" style={{ animationDirection: 'reverse' }} />
+      {/* Binary Matrix Rain */}
+      <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+        {[...Array(50)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute top-0 font-mono text-retro-green/60 animate-matrix-fall"
+            style={{
+              left: `${i * 2}%`,
+              fontSize: '14px',
+              animationDelay: `${Math.random() * 5}s`,
+              animationDuration: `${3 + Math.random() * 4}s`
+            }}
+          >
+            {[...Array(20)].map((_, j) => (
+              <div key={j} className="leading-4" style={{ opacity: Math.random() > 0.5 ? 1 : 0.3 }}>
+                {Math.random() > 0.5 ? '1' : '0'}
+              </div>
+            ))}
+          </div>
+        ))}
       </div>
 
       {/* System Status Panel */}
